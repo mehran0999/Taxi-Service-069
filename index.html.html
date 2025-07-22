@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Taxi Service 069</title>
+  <style>
+    body {
+      background-color: #d0e7ff;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .form-box {
+      background-color: #f0f8ff;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: auto;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .language-switch {
+      text-align: right;
+      margin-bottom: 10px;
+    }
+    .language-switch button {
+      margin-left: 5px;
+      padding: 5px 10px;
+    }
+    .footer {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 16px;
+    }
+    .footer a {
+      color: blue;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-box">
+    <div class="language-switch">
+      <button onclick="setLanguage('de')">Deutsch</button>
+      <button onclick="setLanguage('en')">English</button>
+    </div>
+
+    <h1 id="title">Online-Buchung Ihres Taxis</h1>
+
+    <label for="phone" data-de="Handynummer" data-en="Mobile Number">Handynummer</label>
+    <input id="phone" type="tel" />
+
+    <label for="name" data-de="Name" data-en="Name">Name</label>
+    <input id="name" type="text" />
+
+    <label for="company" data-de="Firma (optional)" data-en="Company (optional)">Firma (optional)</label>
+    <input id="company" type="text" />
+
+    <label for="street" data-de="Straße & Hausnummer" data-en="Street & House No.">Straße & Hausnummer</label>
+    <input id="street" type="text" />
+
+    <label for="zip" data-de="Postleitzahl" data-en="Postal Code">Postleitzahl</label>
+    <input id="zip" type="text" />
+
+    <label for="city" data-de="Stadt" data-en="City">Stadt</label>
+    <input id="city" type="text" />
+
+    <label for="destination" data-de="Zieladresse" data-en="Destination">Zieladresse</label>
+    <input id="destination" type="text" />
+
+    <label for="luggage" data-de="Koffer" data-en="Luggage">Koffer</label>
+    <select id="luggage">
+      <option value="none" data-de="Keine" data-en="None">Keine</option>
+      <option value="1-2" data-de="1–2 Koffer" data-en="1–2 suitcases">1–2 Koffer</option>
+      <option value="3+" data-de="3+ Koffer (Kombi empfohlen)" data-en="3+ suitcases (Estate car recommended)">3+ Koffer (Kombi empfohlen)</option>
+    </select>
+
+    <label data-de="Zusatzausstattung:" data-en="Extra equipment:">Zusatzausstattung:</label>
+    <input type="checkbox" id="childseat" />
+    <label for="childseat" data-de="Kindersitz" data-en="Child seat">Kindersitz</label>
+    <input type="checkbox" id="babyseat" />
+    <label for="babyseat" data-de="Babyschale" data-en="Baby carrier">Babyschale</label>
+  </div>
+
+  <div class="footer">
+    <p data-de="Falls Sie Hilfe brauchen, kontaktieren Sie uns:" data-en="If you need help, please contact us:">
+      Falls Sie Hilfe brauchen, kontaktieren Sie uns:
+    </p>
+    <p><a href="tel:+4915788724523">📞 +49 157 88724523</a></p>
+  </div>
+
+  <script>
+    function setLanguage(lang) {
+      document.querySelectorAll('[data-de]').forEach(el => {
+        el.textContent = lang === 'de' ? el.getAttribute('data-de') : el.getAttribute('data-en');
+      });
+      document.querySelectorAll('select option').forEach(option => {
+        option.textContent = lang === 'de' ? option.getAttribute('data-de') : option.getAttribute('data-en');
+      });
+      document.documentElement.lang = lang;
+    }
+  </script>
+</body>
+</html>
