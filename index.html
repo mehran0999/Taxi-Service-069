@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Taxi-Buchung – Taxi Service 069</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e6f0ff;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #003366;
+    }
+    label {
+      font-weight: bold;
+      margin-top: 12px;
+      display: block;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .flags {
+      text-align: right;
+      padding: 10px 20px 0 0;
+    }
+    .flags img {
+      width: 24px;
+      margin-left: 5px;
+      cursor: pointer;
+    }
+    .checkbox-group {
+      margin-top: 10px;
+    }
+    .checkbox-label {
+      display: block;
+      margin-top: 8px;
+    }
+    button {
+      margin-top: 20px;
+      background-color: #003366;
+      color: white;
+      padding: 12px;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0055aa;
+    }
+    .hint {
+      font-size: 13px;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <div class="flags">
+    <img src="https://flagcdn.com/w40/de.png" alt="Deutsch" onclick="setLanguage('de')">
+    <img src="https://flagcdn.com/w40/gb.png" alt="English" onclick="setLanguage('en')">
+  </div>
+
+  <div class="container">
+    <h1 id="form-title">Taxi-Buchung</h1>
+
+    <form>
+      <label for="date" id="label-date">Datum</label>
+      <input type="date" id="date" name="date" required />
+
+      <label for="time" id="label-time">Uhrzeit</label>
+      <input type="time" id="time" name="time" required />
+
+      <label for="email" id="label-email">E-Mail-Adresse</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="phone" id="label-phone">Handynummer</label>
+      <input type="tel" id="phone" name="phone" required />
+
+      <label for="name" id="label-name">Name</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="address" id="label-address">Adresse</label>
+      <input type="text" id="address" name="address" required />
+
+      <label for="zip" id="label-zip">Postleitzahl</label>
+      <input type="text" id="zip" name="zip" required />
+
+      <label for="city" id="label-city">Stadt</label>
+      <input type="text" id="city" name="city" required />
+
+      <label for="destination" id="label-destination">Ziel</label>
+      <input type="text" id="destination" name="destination" required />
+
+      <label id="label-flightdata">Flugdaten <span class="hint">(falls Sie ein Taxi am Flughafen Frankfurt benötigen)</span></label>
+      <input type="text" name="flugnummer" placeholder="Flugnummer" />
+      <input type="time" name="abflugzeit" placeholder="Abflugzeit" />
+      <input type="time" name="ankunftszeit" placeholder="Ankunftszeit" />
+
+      <label for="koffer" id="label-koffer">Koffer <span class="hint">(1, 2 – bei 3 oder mehr bitte Kombi wählen)</span></label>
+      <input type="text" id="koffer" name="koffer" />
+
+      <div class="checkbox-group">
+        <label class="checkbox-label">
+          <input type="checkbox" name="babyschale" /> Babyschale
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" name="kindersitz" /> Kindersitz
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" name="grossraum" /> Ich benötige ein Großraumtaxi (7-Sitzer)
+        </label>
+      </div>
+
+      <button type="submit" id="submit-btn">Jetzt Taxi buchen</button>
+    </form>
+  </div>
+
+  <script>
+    function setLanguage(lang) {
+      if (lang === 'en') {
+        document.getElementById("form-title").innerText = "Taxi Booking";
+        document.getElementById("label-date").innerText = "Date";
+        document.getElementById("label-time").innerText = "Time";
+        document.getElementById("label-email").innerText = "Email Address";
+        document.getElementById("label-phone").innerText = "Mobile Number";
+        document.getElementById("label-name").innerText = "Name";
+        document.getElementById("label-address").innerText = "Address";
+        document.getElementById("label-zip").innerText = "ZIP Code";
+        document.getElementById("label-city").innerText = "City";
+        document.getElementById("label-destination").innerText = "Destination";
+        document.getElementById("label-flightdata").innerText = "Flight Data (if you need pickup from Frankfurt Airport)";
+        document.getElementById("label-koffer").innerText = "Luggage (1, 2 – for 3 or more please choose station wagon)";
+        document.getElementById("submit-btn").innerText = "Book Taxi Now";
+      } else {
+        document.getElementById("form-title").innerText = "Taxi-Buchung";
+        document.getElementById("label-date").innerText = "Datum";
+        document.getElementById("label-time").innerText = "Uhrzeit";
+        document.getElementById("label-email").innerText = "E-Mail-Adresse";
+        document.getElementById("label-phone").innerText = "Handynummer";
+        document.getElementById("label-name").innerText = "Name";
+        document.getElementById("label-address").innerText = "Adresse";
+        document.getElementById("label-zip").innerText = "Postleitzahl";
+        document.getElementById("label-city").innerText = "Stadt";
+        document.getElementById("label-destination").innerText = "Ziel";
+        document.getElementById("label-flightdata").innerHTML = 'Flugdaten <span class="hint">(falls Sie ein Taxi am Flughafen Frankfurt benötigen)</span>';
+        document.getElementById("label-koffer").innerHTML = 'Koffer <span class="hint">(1, 2 – bei 3 oder mehr bitte Kombi wählen)</span>';
+        document.getElementById("submit-btn").innerText = "Jetzt Taxi buchen";
+      }
+    }
+  </script>
+</body>
+</html>
