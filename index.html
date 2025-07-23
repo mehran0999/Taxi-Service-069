@@ -7,6 +7,169 @@
   <style>
     body {
       font-family: Arial, sans-serif;
+      background: #e6f0ff;
+      padding: 20px;
+    }
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    h2 {
+      text-align: center;
+      color: #003366;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .flags {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .flags img {
+      width: 24px;
+      height: 16px;
+      margin: 0 5px;
+      cursor: pointer;
+    }
+    .checkbox-group {
+      margin-top: 10px;
+    }
+    .checkbox-group label {
+      display: block;
+      font-weight: normal;
+      margin-bottom: 5px;
+    }
+    button {
+      width: 100%;
+      background-color: #003366;
+      color: white;
+      padding: 12px;
+      margin-top: 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="flags">
+      <img src="https://flagcdn.com/de.svg" alt="Deutsch" onclick="setLanguage('de')" />
+      <img src="https://flagcdn.com/gb.svg" alt="English" onclick="setLanguage('en')" />
+    </div>
+
+    <h2 id="title">Taxi-Buchung</h2>
+
+    <form>
+      <label id="dateLabel">Datum</label>
+      <input type="date" />
+
+      <label id="timeLabel">Uhrzeit</label>
+      <input type="time" />
+
+      <label id="emailLabel">E-Mail-Adresse</label>
+      <input type="email" />
+
+      <label id="phoneLabel">Handynummer</label>
+      <input type="tel" />
+
+      <label id="nameLabel">Name</label>
+      <input type="text" />
+
+      <label id="addressLabel">Adresse</label>
+      <input type="text" />
+
+      <label id="zipLabel">Postleitzahl</label>
+      <input type="text" />
+
+      <label id="cityLabel">Stadt</label>
+      <input type="text" />
+
+      <label id="destinationLabel">Ziel</label>
+      <input type="text" />
+
+      <label id="flightInfo"><strong>Flugdaten</strong> (falls Sie ein Taxi am Flughafen Frankfurt benötigen)</label>
+      <input type="text" placeholder="Flugnummer" />
+      <input type="time" placeholder="Abflugzeit" />
+      <input type="time" placeholder="Ankunftszeit" />
+
+      <label for="kofferSelect"><strong>Koffer</strong> (1, 2 – bei 3 oder mehr bitte Kombi wählen)</label>
+      <select id="kofferSelect">
+        <option value="">Keine</option>
+        <option value="1-2">1–2 Koffer</option>
+        <option value="3+">3+ Koffer (Kombi empfohlen)</option>
+      </select>
+
+      <div class="checkbox-group">
+        <label><input type="checkbox" /> Babyschale</label>
+        <label><input type="checkbox" /> Kindersitz</label>
+        <label><input type="checkbox" /> Ich benötige ein Großraumtaxi (7-Sitzer)</label>
+      </div>
+
+      <button type="submit" id="submitBtn">Jetzt Taxi buchen</button>
+    </form>
+  </div>
+
+  <script>
+    function setLanguage(lang) {
+      if (lang === 'en') {
+        document.getElementById('title').innerText = "Taxi Booking";
+        document.getElementById('dateLabel').innerText = "Date";
+        document.getElementById('timeLabel').innerText = "Time";
+        document.getElementById('emailLabel').innerText = "Email Address";
+        document.getElementById('phoneLabel').innerText = "Mobile Number";
+        document.getElementById('nameLabel').innerText = "Name";
+        document.getElementById('addressLabel').innerText = "Address";
+        document.getElementById('zipLabel').innerText = "Postal Code";
+        document.getElementById('cityLabel').innerText = "City";
+        document.getElementById('destinationLabel').innerText = "Destination";
+        document.getElementById('flightInfo').innerHTML = "<strong>Flight Data</strong> (if you need a taxi at Frankfurt Airport)";
+        document.getElementById('kofferSelect').options[0].text = "None";
+        document.getElementById('kofferSelect').options[1].text = "1–2 Bags";
+        document.getElementById('kofferSelect').options[2].text = "3+ Bags (Combi recommended)";
+        document.getElementById('submitBtn').innerText = "Book Taxi Now";
+      } else {
+        document.getElementById('title').innerText = "Taxi-Buchung";
+        document.getElementById('dateLabel').innerText = "Datum";
+        document.getElementById('timeLabel').innerText = "Uhrzeit";
+        document.getElementById('emailLabel').innerText = "E-Mail-Adresse";
+        document.getElementById('phoneLabel').innerText = "Handynummer";
+        document.getElementById('nameLabel').innerText = "Name";
+        document.getElementById('addressLabel').innerText = "Adresse";
+        document.getElementById('zipLabel').innerText = "Postleitzahl";
+        document.getElementById('cityLabel').innerText = "Stadt";
+        document.getElementById('destinationLabel').innerText = "Ziel";
+        document.getElementById('flightInfo').innerHTML = "<strong>Flugdaten</strong> (falls Sie ein Taxi am Flughafen Frankfurt benötigen)";
+        document.getElementById('kofferSelect').options[0].text = "Keine";
+        document.getElementById('kofferSelect').options[1].text = "1–2 Koffer";
+        document.getElementById('kofferSelect').options[2].text = "3+ Koffer (Kombi empfohlen)";
+        document.getElementById('submitBtn').innerText = "Jetzt Taxi buchen";
+      }
+    }
+  </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taxi-Buchung</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
       background-color: #eaf0fb;
       margin: 0;
       padding: 0;
