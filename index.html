@@ -1,4 +1,145 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Taxi-Buchung</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e8f0fe;
+      padding: 20px;
+    }
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    h1 {
+      text-align: center;
+      color: #0a3d62;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    .checkbox-group {
+      margin-top: 10px;
+    }
+    .checkbox-group label {
+      display: inline-block;
+      margin-left: 5px;
+      font-weight: normal;
+    }
+    .lang-switch {
+      text-align: right;
+      margin-bottom: 10px;
+    }
+    .lang-switch span {
+      font-size: 24px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+    .submit-button {
+      margin-top: 20px;
+      padding: 12px;
+      width: 100%;
+      font-size: 16px;
+      background-color: #0a3d62;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .submit-button:hover {
+      background-color: #145da0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="lang-switch">
+    <span onclick="setLanguage('de')">🇩🇪</span>
+    <span onclick="setLanguage('en')">🇬🇧</span>
+  </div>
+
+  <div class="container">
+    <h1 id="title">Taxi-Buchung</h1>
+
+    <form>
+      <label for="date" id="label-date">Datum</label>
+      <input type="date" id="date" name="date">
+
+      <label for="time" id="label-time">Uhrzeit</label>
+      <input type="time" id="time" name="time">
+
+      <label for="email">E-Mail-Adresse</label>
+      <input type="email" id="email" name="email">
+
+      <label for="phone">Handynummer</label>
+      <input type="tel" id="phone" name="phone">
+
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name">
+
+      <label for="address">Adresse</label>
+      <input type="text" id="address" name="address">
+
+      <label for="zip">Postleitzahl</label>
+      <input type="text" id="zip" name="zip">
+
+      <label for="city">Stadt</label>
+      <input type="text" id="city" name="city">
+
+      <label for="destination">Ziel</label>
+      <input type="text" id="destination" name="destination">
+
+      <label for="flight" id="label-flight">Flugdaten (falls Sie ein Taxi am Flughafen Frankfurt benötigen)</label>
+      <input type="text" placeholder="Flugnummer">
+      <input type="time" placeholder="Abflugzeit">
+      <input type="time" placeholder="Ankunftszeit">
+
+      <label for="luggage">Koffer <span style="font-weight: normal;">(1, 2 – bei 3 oder mehr bitte Kombi wählen)</span></label>
+      <input type="text" id="luggage" name="luggage">
+
+      <div class="checkbox-group">
+        <label><input type="checkbox"> Babyschale</label><br>
+        <label><input type="checkbox"> Kindersitz</label><br>
+        <label><input type="checkbox"> Ich benötige ein Großraumtaxi (7-Sitzer)</label>
+      </div>
+
+      <button type="submit" class="submit-button">Jetzt Taxi buchen</button>
+    </form>
+  </div>
+
+  <script>
+    function setLanguage(lang) {
+      if (lang === 'en') {
+        document.getElementById("title").innerText = "Taxi Booking";
+        document.getElementById("label-date").innerText = "Date";
+        document.getElementById("label-time").innerText = "Time";
+        document.getElementById("label-flight").innerText = "Flight Info (if you need pickup from Frankfurt Airport)";
+      } else {
+        document.getElementById("title").innerText = "Taxi-Buchung";
+        document.getElementById("label-date").innerText = "Datum";
+        document.getElementById("label-time").innerText = "Uhrzeit";
+        document.getElementById("label-flight").innerText = "Flugdaten (falls Sie ein Taxi am Flughafen Frankfurt benötigen)";
+      }
+    }
+  </script>
+
+</body>
+</html>!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
