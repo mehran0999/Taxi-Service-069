@@ -1,4 +1,166 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Taxi-Buchung – Taxi Service 069</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .flags {
+      font-size: 24px;
+      cursor: pointer;
+    }
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    input, textarea, select {
+      width: 100%;
+      margin: 8px 0;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .checkbox-group {
+      margin-bottom: 16px;
+    }
+    .checkbox-label {
+      display: block;
+      font-weight: bold;
+      margin-top: 12px;
+    }
+    button {
+      background: purple;
+      color: white;
+      padding: 12px 16px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover {
+      background: #5e0e9d;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2 id="title">Taxi-Buchung</h2>
+    <div class="flags">
+      <span onclick="setLanguage('de')">🇩🇪</span>
+      <span onclick="setLanguage('en')">🇬🇧</span>
+    </div>
+  </header>
 
+  <form>
+    <label id="label-date">Datum</label>
+    <input type="date" name="datum" required />
+
+    <label id="label-time">Uhrzeit</label>
+    <input type="time" name="zeit" required />
+
+    <label id="label-email">E-Mail-Adresse</label>
+    <input type="email" name="email" required />
+
+    <label id="label-phone">Handynummer</label>
+    <input type="tel" name="handy" required />
+
+    <label id="label-name">Name</label>
+    <input type="text" name="name" required />
+
+    <label id="label-address">Adresse</label>
+    <input type="text" name="adresse" required />
+
+    <label id="label-destination">Ziel</label>
+    <input type="text" name="ziel" required />
+
+    <label class="checkbox-label">Koffer (1, 2, bei 3 bitte Kombi wählen)</label>
+    <input type="number" name="koffer" min="0" max="10" />
+
+    <div class="checkbox-group">
+      <label class="checkbox-label">Babyschale</label>
+      <input type="checkbox" name="babyschale" />
+
+      <label class="checkbox-label">Kindersitz</label>
+      <input type="checkbox" name="kindersitz" />
+
+      <label class="checkbox-label">Ich benötige ein Großraumtaxi (7-Sitzer)</label>
+      <input type="checkbox" name="grossraum" />
+    </div>
+
+    <p><i>Hinweis: Bei mehr als 4 Personen bitte Großraumtaxi (7-Sitzer) anfordern.</i></p>
+
+    <label id="label-arrival">Ankunftszeit</label>
+    <input type="time" name="ankunft" />
+
+    <label id="label-pickup">Abholzeit</label>
+    <input type="time" name="abholzeit" />
+
+    <label id="label-flight">Flugnummer</label>
+    <input type="text" name="flugnummer" />
+
+    <label id="label-notes">Bemerkungen (optional)</label>
+    <textarea name="bemerkungen" placeholder="Hier können Sie uns etwas mitteilen …"></textarea>
+
+    <button type="submit" id="submit-button">Jetzt Taxi buchen</button>
+  </form>
+
+  <script>
+    const translations = {
+      de: {
+        title: "Taxi-Buchung",
+        "label-date": "Datum",
+        "label-time": "Uhrzeit",
+        "label-email": "E-Mail-Adresse",
+        "label-phone": "Handynummer",
+        "label-name": "Name",
+        "label-address": "Adresse",
+        "label-destination": "Ziel",
+        "label-arrival": "Ankunftszeit",
+        "label-pickup": "Abholzeit",
+        "label-flight": "Flugnummer",
+        "label-notes": "Bemerkungen (optional)",
+        "submit-button": "Jetzt Taxi buchen"
+      },
+      en: {
+        title: "Taxi Booking",
+        "label-date": "Date",
+        "label-time": "Time",
+        "label-email": "Email",
+        "label-phone": "Mobile number",
+        "label-name": "Name",
+        "label-address": "Address",
+        "label-destination": "Destination",
+        "label-arrival": "Arrival time",
+        "label-pickup": "Pickup time",
+        "label-flight": "Flight number",
+        "label-notes": "Notes (optional)",
+        "submit-button": "Book Taxi Now"
+      }
+    };
+
+    function setLanguage(lang) {
+      const t = translations[lang];
+      for (let key in t) {
+        const el = document.getElementById(key);
+        if (el) el.innerText = t[key];
+      }
+    }
+  </script>
+</body>
+</html>
 <!DOCTYPE html>
 <html lang="de">
 <head>
