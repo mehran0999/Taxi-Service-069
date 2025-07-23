@@ -3,6 +3,181 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Taxi-Buchung</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      padding: 20px;
+    }
+    .language-switch {
+      text-align: right;
+    }
+    .language-switch button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 22px;
+      margin-left: 10px;
+    }
+    h1 {
+      color: #003366;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    .checkbox-group {
+      margin-top: 15px;
+    }
+    .checkbox-group label {
+      margin-bottom: 5px;
+    }
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      margin-top: 8px;
+    }
+    .checkbox-item input {
+      margin-right: 10px;
+    }
+    button[type="submit"] {
+      margin-top: 25px;
+      width: 100%;
+      padding: 12px;
+      background-color: #003366;
+      color: white;
+      border: none;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button[type="submit"]:hover {
+      background-color: #00509e;
+    }
+  </style>
+</head>
+<body>
+
+<div class="language-switch">
+  <button onclick="switchLang('de')">🇩🇪</button>
+  <button onclick="switchLang('en')">🇬🇧</button>
+</div>
+
+<h1 id="form-title">Taxi-Buchung</h1>
+
+<form id="booking-form">
+  <label id="label-date">Datum</label>
+  <input type="date" required>
+
+  <label id="label-time">Uhrzeit</label>
+  <input type="time" required>
+
+  <label id="label-email">E-Mail-Adresse</label>
+  <input type="email" required>
+
+  <label id="label-phone">Handynummer</label>
+  <input type="tel" required>
+
+  <label id="label-name">Name</label>
+  <input type="text" required>
+
+  <label id="label-address">Adresse</label>
+  <input type="text" required>
+
+  <label id="label-zip">Postleitzahl</label>
+  <input type="text" required>
+
+  <label id="label-city">Stadt</label>
+  <input type="text" required>
+
+  <label id="label-destination">Ziel</label>
+  <input type="text" required>
+
+  <label id="label-flight">Flugdaten <small>(falls Sie ein Taxi am Flughafen Frankfurt benötigen)</small></label>
+  <input type="text" placeholder="Flugnummer">
+  <input type="time" placeholder="Abflugzeit">
+  <input type="time" placeholder="Ankunftszeit">
+
+  <label id="label-luggage">Koffer <small>(1, 2 – bei 3 oder mehr bitte Kombi wählen)</small></label>
+  <input type="text">
+
+  <div class="checkbox-group">
+    <label id="label-options">Zusätzliche Optionen:</label>
+    <div class="checkbox-item">
+      <input type="checkbox" id="babyseat">
+      <label for="babyseat">Babyschale</label>
+    </div>
+    <div class="checkbox-item">
+      <input type="checkbox" id="childseat">
+      <label for="childseat">Kindersitz</label>
+    </div>
+    <div class="checkbox-item">
+      <input type="checkbox" id="van">
+      <label for="van">Ich benötige ein Großraumtaxi (7-Sitzer)</label>
+    </div>
+  </div>
+
+  <button type="submit" id="submit-button">Jetzt Taxi buchen</button>
+</form>
+
+<script>
+  const lang = {
+    de: {
+      "form-title": "Taxi-Buchung",
+      "label-date": "Datum",
+      "label-time": "Uhrzeit",
+      "label-email": "E-Mail-Adresse",
+      "label-phone": "Handynummer",
+      "label-name": "Name",
+      "label-address": "Adresse",
+      "label-zip": "Postleitzahl",
+      "label-city": "Stadt",
+      "label-destination": "Ziel",
+      "label-flight": "Flugdaten (falls Sie ein Taxi am Flughafen Frankfurt benötigen)",
+      "label-luggage": "Koffer (1, 2 – bei 3 oder mehr bitte Kombi wählen)",
+      "label-options": "Zusätzliche Optionen:",
+      "submit-button": "Jetzt Taxi buchen"
+    },
+    en: {
+      "form-title": "Taxi Booking",
+      "label-date": "Date",
+      "label-time": "Time",
+      "label-email": "Email Address",
+      "label-phone": "Mobile Number",
+      "label-name": "Name",
+      "label-address": "Address",
+      "label-zip": "Postal Code",
+      "label-city": "City",
+      "label-destination": "Destination",
+      "label-flight": "Flight details (if you need a taxi from Frankfurt Airport)",
+      "label-luggage": "Luggage (1, 2 – for 3+ please select station wagon)",
+      "label-options": "Additional options:",
+      "submit-button": "Book Taxi Now"
+    }
+  };
+
+  function switchLang(l) {
+    for (const key in lang[l]) {
+      document.getElementById(key).textContent = lang[l][key];
+    }
+  }
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Taxi-Buchung – Taxi Service 069</title>
   <style>
     body {
