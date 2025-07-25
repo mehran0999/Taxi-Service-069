@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Taxi Service 069 - Buchung</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f4f4f4;
+    }
+    .language-switch {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+    .language-switch button {
+      margin-left: 5px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    h1 {
+      text-align: center;
+      color: #003366;
+    }
+    form {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+    .checkbox-group {
+      margin-top: 15px;
+    }
+    .checkbox-group label {
+      font-weight: normal;
+      margin-bottom: 5px;
+    }
+    button.submit-btn {
+      margin-top: 20px;
+      padding: 10px;
+      width: 100%;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      font-size: 18px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="language-switch">
+  <button onclick="switchLanguage('de')">🇩🇪</button>
+  <button onclick="switchLanguage('en')">🇬🇧</button>
+</div>
+
+<h1 data-de="Online-Buchung Ihres Taxis" data-en="Online Taxi Booking">Online-Buchung Ihres Taxis</h1>
+
+<form>
+  <label data-de="Name" data-en="Name">Name</label>
+  <input type="text" name="name" required>
+
+  <label data-de="Anschrift" data-en="Address">Anschrift</label>
+  <input type="text" name="address" required>
+
+  <label data-de="Handynummer" data-en="Mobile Number">Handynummer</label>
+  <input type="tel" name="phone" required>
+
+  <label data-de="E-Mail-Adresse" data-en="Email Address">E-Mail-Adresse</label>
+  <input type="email" name="email" required>
+
+  <label data-de="Datum" data-en="Date">Datum</label>
+  <input type="date" name="date" required>
+
+  <label data-de="Uhrzeit" data-en="Time">Uhrzeit</label>
+  <input type="time" name="time" required>
+
+  <label data-de="Zieladresse" data-en="Destination Address">Zieladresse</label>
+  <input type="text" name="ziel" required>
+
+  <label data-de="Koffer (1, 2, bei 3 oder mehr bitte Kombi wählen)" data-en="Luggage (1, 2, for 3+ please choose station wagon)">
+    Koffer (1, 2, bei 3 oder mehr bitte Kombi wählen)
+  </label>
+  <select name="luggage">
+    <option value="keine" data-de="Keine" data-en="None">Keine</option>
+    <option value="1-2" data-de="1–2 Koffer" data-en="1–2 bags">1–2 Koffer</option>
+    <option value="3+" data-de="3+ Koffer (Kombi empfohlen)" data-en="3+ bags (wagon recommended)">3+ Koffer (Kombi empfohlen)</option>
+  </select>
+
+  <div class="checkbox-group">
+    <label data-de="Babyschale" data-en="Baby seat">Babyschale</label>
+    <input type="checkbox" name="extras" value="babyschale">
+
+    <label data-de="Kindersitz" data-en="Child seat">Kindersitz</label>
+    <input type="checkbox" name="extras" value="kindersitz">
+
+    <label data-de="Ich benötige ein Großraumtaxi (7-Sitzer)" data-en="I need a large taxi (7-seater)">
+      Ich benötige ein Großraumtaxi (7-Sitzer)
+    </label>
+    <input type="checkbox" name="extras" value="7sitzer">
+  </div>
+
+  <h3 data-de="Flugdaten (falls Sie ein Taxi am Flughafen Frankfurt benötigen):"
+      data-en="Flight details (if you need a taxi from Frankfurt Airport):">
+      Flugdaten (falls Sie ein Taxi am Flughafen Frankfurt benötigen):
+  </h3>
+
+  <label data-de="Flugnummer" data-en="Flight number">Flugnummer</label>
+  <input type="text" name="flugnummer">
+
+  <label data-de="Abflugzeit" data-en="Departure time">Abflugzeit</label>
+  <input type="time" name="abflugzeit">
+
+  <label data-de="Ankunftszeit" data-en="Arrival time">Ankunftszeit</label>
+  <input type="time" name="ankunftszeit">
+
+  <label data-de="Bemerkungen oder Extrawünsche" data-en="Remarks or special requests">Bemerkungen oder Extrawünsche</label>
+  <textarea name="bemerkung" rows="3"></textarea>
+
+  <button type="submit" class="submit-btn"
+    data-de="Jetzt Taxi buchen" data-en="Book taxi now">Jetzt Taxi buchen</button>
+</form>
+
+<script>
+  function switchLanguage(lang) {
+    document.querySelectorAll('[data-de]').forEach(el => {
+      el.innerText = el.getAttribute('data-' + lang);
+    });
+    document.querySelectorAll('option').forEach(option => {
+      if (option.hasAttribute('data-' + lang)) {
+        option.text = option.getAttribute('data-' + lang);
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
